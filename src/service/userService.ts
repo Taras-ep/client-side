@@ -15,12 +15,12 @@ class CreateUser {
     public createUser(name: string, email: string, phoneNumber: string, password: string) {
         try {
             this.isValidated = UserInputValidator(name, email, phoneNumber, password)
-            if (!this.isValidated) throw new Error("User validation failed")
-
-            this.createUserJSON = { name, email, phoneNumber, password }
-            return this.createUserJSON
-
+            if(this.isValidated) {
+                this.createUserJSON = { name, email, phoneNumber, password }
+                return this.createUserJSON
+            }
         } catch (error) {
+            this.isValidated = false
             throw error
         }
     }
