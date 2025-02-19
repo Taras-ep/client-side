@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import '../../styles/button-continue.scss'
+import '../../styles/mediaRequests/auth-form-media-req.scss'
 
 interface ButtonContinueProps {
     onContinue: () => void,
@@ -18,7 +19,7 @@ const ButtonContinue = (props: ButtonContinueProps) => {
 
     return (
         <div className="button-container" >
-            <button ref={buttonRef} type="button" onClick={() => {
+            <button className="button-continue" ref={buttonRef} type="button" onClick={() => {
                     props.onContinue()
             }}>
                 {props.text}
